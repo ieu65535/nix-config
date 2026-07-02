@@ -34,8 +34,19 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/hyper/configuration.nix
-          # ./niri-manual.nix
-          # ./noctalia.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.ieu = import ./users/ieu/home.nix;
+          }
+        ];
+      };
+      desk-arc = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/desk-arc/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = { inherit inputs; };

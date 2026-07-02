@@ -51,13 +51,20 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  # services.desktopManager.gnome.enable = true;
-  # services.displayManager.gdm.enable = true;
-  # programs.niri.enable = true;
-  # services.displayManager.sessionPackages = [ pkgs.niri ];
-  
+  programs.niri.enable = true;
+
+  services.displayManager = {
+    defaultSession = "niri";
+    sddm.enable = true;
+    # sddm.wayland.enable = true;  # Hyper-V 不支持 Wayland 模式
+    # autoLogin = {
+    #   enable = true;
+    #   user = "ieu";
+    # };
+  };
+
+  security.polkit.enable = true;
+  programs.dconf.enable = true;
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";

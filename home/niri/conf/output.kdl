@@ -1,0 +1,7 @@
+// Configure outputs here
+// Example:
+// output "eDP-1" {
+//     scale 1.5
+// }
+//
+// Run `niri msg outputs` to list available outputs.

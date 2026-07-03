@@ -1,0 +1,38 @@
+include "binds.kdl"
+include "layout.kdl"
+include "output.kdl"
+
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
+
+environment {
+    EDITOR "vim"
+    QT_QPA_PLATFORMTHEME "gtk3"
+}
+
+cursor {
+    xcursor-theme "breeze_cursors"
+    xcursor-size 24
+    hide-after-inactive-ms 15000
+}
+
+input {
+    keyboard {
+        repeat-delay 250
+        repeat-rate 35
+    }
+    touchpad {
+        tap
+        natural-scroll
+    }
+    mouse {
+        accel-profile "flat"
+    }
+}
+
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+prefer-no-csd

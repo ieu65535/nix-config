@@ -58,14 +58,18 @@
 
   services.displayManager = {
     defaultSession = "niri";
-    sddm.enable = true;
-    sddm.wayland.enable = true;  # Hyper-V 不支持 Wayland 模式
+    sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
     autoLogin = {
       enable = true;
       user = "ieu";
     };
   };
 
+  security.polkit.enable = true;
+  programs.dconf.enable = true;
   
 
   # Configure keymap in X11
@@ -90,6 +94,9 @@
   users.users.ieu = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIATnmIVYJOTrZWxIYN7p7F/Kio0+4jCvx/zTPpaTHIOE ieu@laptop"
+    ];
     packages = with pkgs; [
       tree
     ];
@@ -100,9 +107,10 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     git
     wget
+    polkit_gnome
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

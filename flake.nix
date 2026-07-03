@@ -57,7 +57,7 @@
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.ieu = import ./users/ieu/home.nix;
+            home-manager.users.ieu = import ./hosts/desk-arc/home.nix;
           }
         ];
       };

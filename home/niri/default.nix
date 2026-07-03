@@ -8,5 +8,8 @@ in {
     "niri/binds.kdl".source = mkSymlink "${confDir}/binds.kdl";
     "niri/layout.kdl".source = mkSymlink "${confDir}/layout.kdl";
     "niri/output.kdl".source = mkSymlink "${confDir}/output.kdl";
+    "niri/input.kdl".source = mkSymlink "${confDir}/input.kdl";
+    "niri/startup.kdl".source = mkSymlink "${confDir}/startup.kdl";
+    "niri/windowrules.kdl".source = mkSymlink "${confDir}/windowrules.kdl";
   };
 }

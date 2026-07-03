@@ -33,7 +33,32 @@
     };
   };
 
-  programs.dconf.enable = true;
+  services = {
+    gvfs.enable = true; # Mount, trash, and other functionalities
+    tumbler.enable = true; # Thumbnail support for images
+  };
+
+  programs = {
+    # dconf is a low-level configuration system.
+    dconf.enable = true;
+
+    # thunar file manager(part of xfce) related options
+    thunar = {
+      enable = true;
+      plugins = with pkgs; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
+    };
+  };
+
+  hardware.bluetooth.enable = true;
+  services.power-profiles-daemon.enable = true;
+  services.upower.enable = true;
+  
+  environment.systemPackages = [ 
+    pkgs.nautilus 
+  ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };

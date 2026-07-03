@@ -5,6 +5,10 @@
     ../../home/niri
     ../../home/terminal/kitty.nix
     ../../home/editors/vscode
+    ../../home/browsers/chrome.nix
+    # ../../home/browsers/firefox.nix
+    # ../../home/im/qq.nix
+    # ../../home/im/wechat.nix
   ];
 
   home.stateVersion = "26.05";

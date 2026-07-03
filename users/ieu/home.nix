@@ -4,6 +4,7 @@
     inputs.noctalia.homeModules.default
     ../../home/niri
     ../../home/terminal/kitty.nix
+    ../../home/editors/vscode
   ];
 
   home.stateVersion = "26.05";

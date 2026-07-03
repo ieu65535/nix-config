@@ -38,6 +38,14 @@ flake.nix
 
 Only output exposed: `nixosConfigurations.hyper`. No `packages`, `devShells`, `formatter`, `checks`, or standalone `homeConfigurations`.
 
+## Ground Rules for Agents
+
+- Make the smallest reasonable change; avoid drive-by refactors.
+- Do not commit secrets, generated credentials, or private keys.
+- Preserve platform guards (`[linux]`, `[macos]`) and host naming conventions.
+- Run formatting and evaluation checks for touched areas before finishing.
+
+
 ## Conventions
 
 - **Cachix**: `noctalia.cachix.org` + `nix-community.cachix.org` configured as substituters.

@@ -8,12 +8,10 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      # ../../modules/hardening
     ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "desk-arc"; # Define your hostname.
@@ -28,14 +26,6 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  nixpkgs.config.allowUnfree = true;
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
-
   nix.settings = {
     substituters = [
       "https://mirror.sjtu.edu.cn/nix-channels/store?priority=10"
@@ -43,7 +33,6 @@
       "https://cache.nixos.org/"
     ];
     experimental-features = [ "nix-command" "flakes" ];
-    auto-optimise-store = true;
   };
 
   # Select internationalisation properties.
@@ -58,21 +47,6 @@
   # services.xserver.enable = true;
 
   programs.niri.enable = true;
-
-  services.displayManager = {
-    defaultSession = "niri";
-    sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
-    autoLogin = {
-      enable = true;
-      user = "ieu";
-    };
-  };
-
-  programs.dconf.enable = true;
-  
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -112,7 +86,6 @@
     vim
     git
     wget
-    polkit_gnome
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

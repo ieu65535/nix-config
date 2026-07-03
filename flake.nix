@@ -51,14 +51,8 @@
       desk-arc = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
-          ./hosts/desk-arc/configuration.nix
+          ./hosts/desk-arc
           home-manager.nixosModules.home-manager
-          {
-            home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.ieu = import ./hosts/desk-arc/home.nix;
-          }
         ];
       };
     };

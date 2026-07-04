@@ -12,3 +12,5 @@
 // spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
 spawn-at-startup "noctalia"
+// 输入法
+spawn-at-startup "fcitx5" 

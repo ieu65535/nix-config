@@ -10,6 +10,6 @@ in {
     "niri/input.kdl".source = mkSymlink "${confDir}/input.kdl";
     "niri/startup.kdl".source = mkSymlink "${confDir}/startup.kdl";
     "niri/windowrules.kdl".source = mkSymlink "${confDir}/windowrules.kdl";
-    "niri/noctalia-shell.kdl".source = mkSymlink "${confDir}/noctalia-shell.kdl";
+    "niri/noctalia.kdl".source = mkSymlink "${confDir}/noctalia.kdl";
   };
 }

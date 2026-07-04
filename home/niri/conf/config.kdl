@@ -9,7 +9,7 @@ include "input.kdl"
 include "startup.kdl"
 include "windowrules.kdl"
 include "niri-hardware.kdl"
-include "noctalia-shell.kdl"
+include "noctalia.kdl"
 
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
@@ -32,9 +32,23 @@ animations {
 
 
 environment {
-    EDITOR "vim"
+    // 设置界面语言
+    LANGUAGE "zh_CN.UTF-8"
+    LANG "zh_CN.UTF-8"
+    // 输入法环境变量
+    XMODIFIERS "@im=fcitx"
+    // qt主题
     QT_QPA_PLATFORMTHEME "gtk3"
+    QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+    // 解决quickshell图标主题缺失问题
+    QS_ICON_THEME "Adwaita"
+    // GTK软件使用的渲染器，可以解决n卡双显卡导致的GTK应用启动缓慢问题，AMD或Intel单显卡不需要这行设置可以注释掉
+    //GSK_RENDERER "gl"
+    // 默认文本编辑器
+    EDITOR "vim"
 }
+
+spawn-at-startup "fcitx5" "-d"
 
 cursor {
     xcursor-theme "breeze_cursors"

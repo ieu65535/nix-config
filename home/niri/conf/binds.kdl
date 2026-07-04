@@ -13,20 +13,46 @@ binds {
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
 
+    // Fn keys
+    Mod+F1 hotkey-overlay-title="开关输入法 Toggle fcitx" {spawn-sh "pkill fcitx5 || fcitx5 "; }
+    Mod+F2 hotkey-overlay-title="设置 Settings" { spawn-sh "noctalia msg settings-toggle"; }
+    Mod+F3 hotkey-overlay-title="录屏 Screen record" { spawn "";}
+    // Mod+P hotkey-overlay-title="提取窗口信息 Pick information" { spawn "~/.config/niri/scripts/niri-pick" "focus"; }
+
     // Terminal
-    Mod+T hotkey-overlay-title="kitty: fish" { spawn "kitty"; }
+    Mod+T hotkey-overlay-title="终端 Terminal" { spawn "kitty"; }
+
+    // 临时开一个浮动终端
+    Mod+Slash hotkey-overlay-title="临时终端 Quick Terminal" {spawn "kitty" "--single-instance" "--class" "quickterminal";}
+    //打开浏览器
+    Mod+B hotkey-overlay-title="浏览器 Browser" { spawn "google-chrome"; }
+    // 文档管理器。如果有thunar的话会优先打开thunar，没有的话会打开nautilus
+    Mod+E hotkey-overlay-title="文档管理器 Filemanager" { spawn-sh "thunar || env GSK_RENDERER=gl GTK_IM_MODULE=fcitx  nautilus"; }
+    // 另一个打开nautilus的快捷键，主要是为了在同时安装thunar和nautilus的情况下打开naultilus
+    Mod+Alt+E hotkey-overlay-title=null {spawn "env" "GSK_RENDERER=gl" "GTK_IM_MODULE=fcitx"  "nautilus" "--new-window";}
 
     // App launcher
-    Mod+Z hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-
+    // Mod+Z hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+Z hotkey-overlay-title="程序菜单 Applauncher" { spawn-sh "noctalia msg panel-toggle launcher || fuzzel"; }
+    // 剪贴板
+    Mod+Alt+V hotkey-overlay-title="剪贴板 Clipboard" {spawn-sh "noctalia msg panel-toggle clipboard";} 
+    // 壁纸选择
+    Mod+Alt+W hotkey-overlay-title="壁纸切换 Wallpaper" { spawn-sh "noctalia msg panel-toggle wallpaper";}
+    // 随机切换壁纸
+    Mod+F10 hotkey-overlay-title="随机切换壁纸 Random wallpaper" { spawn-sh "noctalia msg wallpaper-random";}
+    // 随机下载壁纸
+    // Mod+Shift+F10 hotkey-overlay-title="随机下载壁纸 Random Download wallpaper" { spawn "~/.local/bin/random-anime-wallpaper-noctalia";}
+    
     // Screenshot
     Print { spawn "niri" "msg" "action" "screenshot" "--show-pointer" "false"; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
-    Mod+B hotkey-overlay-title="Browser: Chrome" { spawn "google-chrome"; }
-
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+
+    // Core Noctalia binds
+    Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
+    Mod+Shift+S { spawn-sh "noctalia msg settings-toggle"; }
 
     // Focus
     Mod+Left  { focus-column-left; }
@@ -283,9 +309,9 @@ binds {
     // The allow-when-locked=true property makes them work even when the session is locked.
     // Using spawn-sh allows to pass multiple arguments together with the command.
     // "-l 1.0" limits the volume to 100%.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
     // Example media keys mapping using playerctl.
@@ -298,6 +324,6 @@ binds {
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
     // but you need to manually put each argument in separate "" quotes.
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
 }

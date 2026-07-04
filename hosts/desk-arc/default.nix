@@ -64,6 +64,16 @@
     pkgs.fastfetch
   ];
 
+  fonts.enableDefaultPackages = true;
+
+  fonts.packages = with pkgs; [
+    wqy_zenhei
+    wqy_microhei
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+  ];
+
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     useGlobalPkgs = true;

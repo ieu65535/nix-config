@@ -3,6 +3,7 @@
   imports = [
     ./configuration.nix
     ../../modules/security.nix
+    ../../modules/hardware-intel.nix
   ];
 
   boot.loader.systemd-boot.configurationLimit = 10;

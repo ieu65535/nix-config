@@ -27,6 +27,83 @@ window-rule {
     match app-id=r#"code$"#
     default-column-width { proportion 1.0; }
 }
+// steam 好友列表
+window-rule {
+    match app-id="steam" title="Friends List"
+    match app-id="steam" title="好友列表"
+    default-column-width { proportion 0.20; }
+}
+// steam好友弹窗修复
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+    open-focused false
+}
+// 以浮动模式打开的软件
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id="com.gabm.satty"
+    match app-id="media_info"
+    match app-id="video2gif"
+    match app-id="floating-term"
+    match app-id="nm-connection-editor"
+    match app-id="niri-quick-switch"
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id="steam" title="Friends List"
+    match app-id="blueberry.py" title="蓝牙"
+    match app-id="blueman-manager"
+    match app-id="flameshot"
+    match app-id="com.github.hluk.copyq" 
+    match app-id="be.alexandervanhee.gradia"
+    match app-id="org.pulseaudio.pavucontrol" title="音量控制"
+    match app-id="org.gnome.clocks" title="时钟"
+    match app-id="fcitx" title="Fcitx5 Input Window"
+    match app-id="org.gnome.FileRoller"
+    match app-id="thunar" title="文件操作进度"
+    match app-id="waypaper"
+    match app-id="clipse-gui"
+    match title="群聊的聊天记录"
+    match title="聊天记录"
+    match title="群相册"
+    match title="日历"
+    match title="重命名"
+    match app-id="btrfs-assistant"
+    match app-id="markpix"
+    match title="Steam 设置" 
+    match title="另存为"
+    match app-id="better_control.py"
+    match app-id="niri-hotkey-menu"
+    open-floating true
+}
+// waydroid调整
+window-rule {
+    match title="gsr ui"
+    match app-id="waydroid"
+    open-fullscreen true
+    open-floating true
+    focus-ring {
+        off
+    }
+    shadow {
+        off
+    }
+}
+// 取消图片预览、视频播放器之类的透明度，并且以浮动模式打开
+window-rule {
+    match title="图片查看器"
+    match title="画中画"
+    match title="图片和视频"
+    match title="视频播放器"
+    open-floating true
+    opacity 1.0
+}
+window-rule {
+    match app-id="mpv"
+    match app-id="celluloid"
+    opacity 1.0 
+}
 
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.

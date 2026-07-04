@@ -4,6 +4,7 @@
     ./configuration.nix
     ../../modules/security.nix
     ../../modules/hardware-intel.nix
+    ../../modules/gaming.nix
   ];
 
   boot.loader.systemd-boot.configurationLimit = 10;

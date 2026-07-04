@@ -1,9 +1,15 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }:
 {
+  imports = [
+    inputs.nix-gaming.nixosModules.pipewireLowLatency
+    inputs.nix-gaming.nixosModules.platformOptimizations
+  ];
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;  # Open ports in the firewall for Steam Remote Play

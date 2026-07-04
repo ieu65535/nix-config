@@ -15,7 +15,7 @@
     # https://github.com/Open-Wine-Components/umu-launcher
     # a unified launcher for Windows games on Linux
     # umu-launcher
-  ]
+  ];
 
   # a GUI game launcher for Steam/GoG/Epic/Ubisoft
   # https://lutris.net/games?ordering=-popularity

@@ -1,7 +1,8 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     ./configuration.nix
+    ../../modules/security.nix
   ];
 
   boot.loader.systemd-boot.configurationLimit = 10;

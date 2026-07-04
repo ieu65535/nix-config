@@ -59,7 +59,9 @@
   services.upower.enable = true;
   
   environment.systemPackages = [ 
-    pkgs.nautilus 
+    pkgs.nautilus
+    pkgs.mission-center
+    pkgs.fastfetch
   ];
 
   home-manager = {

@@ -5,6 +5,7 @@ in
 {
   imports = [
     ../../users/ieu/home.nix
+    ../../home/noctalia
   ];
 
   xdg.configFile."niri/niri-hardware.kdl".source = mkSymlink

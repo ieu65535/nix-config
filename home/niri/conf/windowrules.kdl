@@ -15,11 +15,17 @@ window-rule {
     // 禁止边框画到背景里
     draw-border-with-background false
 }
-//快速终端和笔记
+// 快速终端和笔记
 window-rule {
     match app-id="quickterminal"
 	open-floating true
 	default-floating-position x=20 y=20 relative-to="top"
+}
+// 浏览器和vscode
+window-rule {
+    match app-id=r#"chrome$"#
+    match app-id=r#"code$"#
+    default-column-width { proportion 1.0; }
 }
 
 // Work around WezTerm's initial configure bug

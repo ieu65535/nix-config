@@ -10,3 +10,8 @@ debug {
   // Allows notification actions and window activation from Noctalia.
   honor-xdg-activation-with-invalid-serial
 }
+
+layer-rule {
+  match namespace="^noctalia-backdrop"
+  place-within-backdrop true
+}

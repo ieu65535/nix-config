@@ -76,6 +76,24 @@
     noto-fonts-color-emoji
   ];
 
+  fileSystems."/mnt/d" =
+  { device = "/dev/disk/by-uuid/4A91429C63BA383C";
+    fsType = "ntfs3";
+  };
+
+  # fileSystems =
+  # let
+  #   ntfs-drives = [
+  #     "/mnt/sdX"
+  #   ];
+  # in
+  # lib.genAttrs ntfs-drives (path: {
+  #   options = [
+  #     "uid=$UID" # REPLACE "$UID" WITH YOUR ACTUAL UID!
+  #     # "nofail"
+  #   ];
+  # });
+
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     useGlobalPkgs = true;

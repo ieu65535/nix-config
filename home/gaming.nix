@@ -15,24 +15,26 @@
     # https://github.com/Open-Wine-Components/umu-launcher
     # a unified launcher for Windows games on Linux
     # umu-launcher
+
+    maa-cli
   ];
 
   # a GUI game launcher for Steam/GoG/Epic/Ubisoft
   # https://lutris.net/games?ordering=-popularity
   programs.lutris = {
     enable = true;
-    defaultWinePackage = pkgs.proton-ge-bin;
+    # defaultWinePackage = pkgs.proton-ge-bin;
     steamPackage = osConfig.programs.steam.package;
-    protonPackages = [ pkgs.proton-ge-bin ];
-    winePackages = with pkgs; [
-      wineWow64Packages.full
-    ];
+    # protonPackages = [ pkgs.proton-ge-bin ];
+    # winePackages = with pkgs; [
+    #   wineWow64Packages.full
+    # ];
     extraPackages = with pkgs; [
       gamemode
       mangohud
-      # winetricks
-      # umu-launcher
-      # gamescope
+      winetricks
+      umu-launcher
+      gamescope
     ];
   };
 }

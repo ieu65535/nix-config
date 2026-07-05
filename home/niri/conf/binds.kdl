@@ -43,6 +43,8 @@ binds {
     // 随机下载壁纸
     // Mod+Shift+F10 hotkey-overlay-title="随机下载壁纸 Random Download wallpaper" { spawn "~/.local/bin/random-anime-wallpaper-noctalia";}
     
+    Mod+F5 hotkey-overlay-title="Steam" { spawn-sh "LIBGL_ALWAYS_SOFTWARE=1 steam"; }
+
     // Screenshot
     Print { spawn "niri" "msg" "action" "screenshot" "--show-pointer" "false"; }
     Ctrl+Print { screenshot-screen; }

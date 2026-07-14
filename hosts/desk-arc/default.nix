@@ -69,6 +69,7 @@
   programs.clash-verge.enable = true;
   programs.clash-verge.tunMode = true;
   programs.clash-verge.serviceMode = true;
+  programs.clash-verge.autoStart = true;
 
   fonts.enableDefaultPackages = true;
 
@@ -83,21 +84,9 @@
   fileSystems."/mnt/d" =
   { device = "/dev/disk/by-uuid/4A91429C63BA383C";
     fsType = "ntfs3";
+    options = [ "uid=1000" "gid=100" "nofail" ];
   };
   zramSwap.enable = true; # Creates a zram block device and uses it as a swap device
-
-  # fileSystems =
-  # let
-  #   ntfs-drives = [
-  #     "/mnt/sdX"
-  #   ];
-  # in
-  # lib.genAttrs ntfs-drives (path: {
-  #   options = [
-  #     "uid=$UID" # REPLACE "$UID" WITH YOUR ACTUAL UID!
-  #     # "nofail"
-  #   ];
-  # });
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };

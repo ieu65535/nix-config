@@ -70,14 +70,6 @@
   programs.clash-verge.tunMode = true;
   programs.clash-verge.serviceMode = true;
 
-  services.flatpak.enable = true;
-  environment.sessionVariables = {
-    XDG_DATA_DIRS = [
-      "/var/lib/flatpak/exports/share"
-      "$HOME/.local/share/flatpak/exports/share"
-    ];
-  };
-
   fonts.enableDefaultPackages = true;
 
   fonts.packages = with pkgs; [
@@ -92,6 +84,7 @@
   { device = "/dev/disk/by-uuid/4A91429C63BA383C";
     fsType = "ntfs3";
   };
+  zramSwap.enable = true; # Creates a zram block device and uses it as a swap device
 
   # fileSystems =
   # let

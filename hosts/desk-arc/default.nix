@@ -6,6 +6,8 @@
     ../../modules/hardware-intel.nix
     ../../modules/gaming.nix
     ../../modules/virtualisation.nix
+    ../../modules/i18n.nix
+    ../../modules/clash.nix
   ];
 
   boot.loader.systemd-boot.configurationLimit = 10;
@@ -65,11 +67,6 @@
     pkgs.mission-center
     pkgs.fastfetch
   ];
-
-  programs.clash-verge.enable = true;
-  programs.clash-verge.tunMode = true;
-  programs.clash-verge.serviceMode = true;
-  programs.clash-verge.autoStart = true;
 
   fonts.enableDefaultPackages = true;
 

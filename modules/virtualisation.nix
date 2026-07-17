@@ -30,30 +30,30 @@
       "$HOME/.local/share/flatpak/exports/share"
     ];
   };
-  # networking.nftables.enable = true;
+  networking.nftables.enable = true;
 
   virtualisation = {
     docker.enable = false;
-    # podman = {
-    #   enable = true;
-    #   # Create a `docker` alias for podman, to use it as a drop-in replacement
-    #   dockerCompat = true;
-    #   # Required for containers under podman-compose to be able to talk to each other.
-    #   defaultNetwork.settings.dns_enabled = true;
-    #   # Periodically prune Podman resources
-    #   autoPrune = {
-    #     enable = true;
-    #     dates = "weekly";
-    #     flags = [ "--all" ];
-    #   };
-    # };
+    podman = {
+      enable = true;
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+      # Periodically prune Podman resources
+      autoPrune = {
+        enable = true;
+        dates = "weekly";
+        flags = [ "--all" ];
+      };
+    };
 
-    # oci-containers = {
-    #   backend = "podman";
-    # };
+    oci-containers = {
+      backend = "podman";
+    };
 
     # Usage: https://wiki.nixos.org/wiki/Waydroid
-    # waydroid.enable = true;
+    waydroid.enable = true;
 
     # libvirtd = {
     #   enable = true;
@@ -93,5 +93,6 @@
     # qemu
 
     android-tools
+    scrcpy
   ];
 }

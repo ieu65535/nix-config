@@ -8,6 +8,7 @@
     ../../modules/virtualisation.nix
     ../../modules/i18n.nix
     ../../modules/clash.nix
+    ../../modules/btrfs.nix
   ];
 
   boot.loader.systemd-boot.configurationLimit = 10;
@@ -77,12 +78,7 @@
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
   ];
-
-  fileSystems."/mnt/d" =
-  { device = "/dev/disk/by-uuid/4A91429C63BA383C";
-    fsType = "ntfs3";
-    options = [ "uid=1000" "gid=100" "nofail" ];
-  };
+  
   zramSwap.enable = true; # Creates a zram block device and uses it as a swap device
 
   home-manager = {

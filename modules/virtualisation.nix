@@ -30,7 +30,7 @@
       "$HOME/.local/share/flatpak/exports/share"
     ];
   };
-  networking.nftables.enable = true;
+  # networking.nftables.enable = true;
 
   virtualisation = {
     docker.enable = false;
@@ -53,7 +53,7 @@
     # };
 
     # Usage: https://wiki.nixos.org/wiki/Waydroid
-    waydroid.enable = true;
+    # waydroid.enable = true;
 
     # libvirtd = {
     #   enable = true;

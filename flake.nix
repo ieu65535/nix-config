@@ -20,6 +20,11 @@
     #   url = "github:nixpak/nixpak";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
+
+    # anime-games-launcher = {
+    #   url = "github:an-anime-team/anime-games-launcher";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   nixConfig = {
@@ -27,11 +32,13 @@
       "https://noctalia.cachix.org"
       "https://nix-community.cachix.org"
       "https://nix-gaming.cachix.org"
+      # "https://anime-games-launcher.cachix.org"
     ];
     extra-trusted-public-keys = [
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+      # "anime-games-launcher.cachix.org-1:kFD3H8Ft2naaCDhUKOoGvRLqs2NRlFh8QMSiSfm0tbQ="
     ];
   };
 
@@ -39,6 +46,7 @@
     self,
     nixpkgs,
     home-manager,
+    # anime-games-launcher,
     ...
   }: {
     nixosConfigurations = {
@@ -59,6 +67,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/desk-arc
+          # anime-games-launcher.nixosModules.anime-games-launcher
           home-manager.nixosModules.home-manager
         ];
       };

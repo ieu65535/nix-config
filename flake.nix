@@ -2,19 +2,24 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    noctalia.url = "github:noctalia-dev/noctalia/cachix";
+    # noctalia.url = "github:noctalia-dev/noctalia/cachix";
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # noctalia-greeter = {
+    #   url = "github:noctalia-dev/noctalia-greeter";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
-    nix-gaming = {
-      url = "github:fufexan/nix-gaming";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # home-manager = {
+    #   url = "github:nix-community/home-manager";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
+    # nix-gaming = {
+    #   url = "github:fufexan/nix-gaming";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # nixpak = {
     #   url = "github:nixpak/nixpak";
@@ -25,6 +30,27 @@
     #   url = "github:an-anime-team/anime-games-launcher";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
+
+    # --- ssh ---
+
+    nixpkgs.url = "git+ssh://git@github.com/NixOS/nixpkgs.git?ref=nixos-unstable&shallow=1";
+
+    noctalia.url = "git+ssh://git@github.com/noctalia-dev/noctalia.git?ref=cachix&shallow=1";
+
+    noctalia-greeter = {
+      url = "git+ssh://git@github.com/noctalia-dev/noctalia-greeter.git?shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    home-manager = {
+      url = "git+ssh://git@github.com/nix-community/home-manager.git?shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-gaming = {
+      url = "git+ssh://git@github.com/fufexan/nix-gaming.git?shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {

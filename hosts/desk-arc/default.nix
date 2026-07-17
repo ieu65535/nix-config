@@ -9,6 +9,7 @@
     ../../modules/i18n.nix
     ../../modules/clash.nix
     ../../modules/btrfs.nix
+    inputs.noctalia-greeter.nixosModules.default
   ];
 
   boot.loader.systemd-boot.configurationLimit = 10;
@@ -37,6 +38,24 @@
     autoLogin = {
       enable = true;
       user = "ieu";
+    };
+  };
+
+  programs.noctalia-greeter = {
+    enable = true;
+    greeter-args = "--session niri";
+    settings = {
+      session.default = "niri";
+      user.default = "ieu";
+      outputs.name = "DP-3";
+      # cursor = {
+      #   theme = "Bibata-Modern-Ice";
+      #   size = 24;
+      #   path = "${pkgs.bibata-cursors}/share/icons";
+      # };
+      # keyboard = {
+      #   layout = "us";
+      # };
     };
   };
 

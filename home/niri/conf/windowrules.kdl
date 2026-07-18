@@ -51,6 +51,7 @@ window-rule {
     open-floating true
     geometry-corner-radius 0
     focus-ring { off; }
+    shadow { off; }
 }
 // 以浮动模式打开的软件
 window-rule {

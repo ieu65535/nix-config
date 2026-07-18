@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 {
+  imports = [
+    ./fuzzel.nix
+  ];
+
   home.packages = with pkgs; [
     # Niri v25.08 will create X11 sockets on disk, export $DISPLAY, and spawn `xwayland-satellite` on-demand when an X11 client connects
     xwayland-satellite
@@ -8,6 +12,8 @@
     # slurp
     # grim
     # satty
+
+    wl-clipboard
   ];
 
   xdg.configFile = 
@@ -23,5 +29,7 @@
       "niri/startup.kdl".source = mkSymlink "${confDir}/startup.kdl";
       "niri/windowrules.kdl".source = mkSymlink "${confDir}/windowrules.kdl";
       "niri/noctalia.kdl".source = mkSymlink "${confDir}/noctalia.kdl";
+
+      "niri/scripts/niri-pick".source = mkSymlink "${confDir}/scripts/niri-pick";
     };
 }

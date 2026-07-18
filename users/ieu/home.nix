@@ -10,7 +10,6 @@
     # ../../home/browsers/firefox.nix
     # ../../home/im/qq.nix
     # ../../home/im/wechat.nix
-    # ../../home/niri/fuzzel.nix
   ];
 
   home.stateVersion = "26.05";

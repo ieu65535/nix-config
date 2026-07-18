@@ -1,4 +1,7 @@
 { pkgs, ... }:
 {
-  home.packages = [ pkgs.nixpaks.qq ];
+  home.packages = with pkgs; [
+    # nixpaks.qq
+    qq
+  ];
 }

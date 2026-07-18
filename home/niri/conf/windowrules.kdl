@@ -49,6 +49,8 @@ window-rule {
 window-rule {
     match app-id="steam_app_default" title="Form"
     open-floating true
+    geometry-corner-radius 0
+    focus-ring { off; }
 }
 // 以浮动模式打开的软件
 window-rule {

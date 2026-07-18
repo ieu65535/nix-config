@@ -39,6 +39,17 @@ window-rule {
     default-floating-position x=10 y=10 relative-to="bottom-right"
     open-focused false
 }
+// lutris启动器修复
+window-rule {
+    match app-id="steam_app_default" title=""
+    match app-id="steam_app_default" title="鹰角启动器"
+    open-floating false
+}
+// 终末地浮窗修复
+window-rule {
+    match app-id="steam_app_default" title="Form"
+    open-floating true
+}
 // 以浮动模式打开的软件
 window-rule {
     // This app-id regular expression will work for both:

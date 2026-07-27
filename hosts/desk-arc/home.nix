@@ -7,7 +7,7 @@ in
     ../../users/ieu/home.nix
     ../../home/noctalia
     ../../home/gaming.nix
-    ../../home/im/qq.nix
+    # ../../home/im/qq.nix
   ];
 
   xdg.configFile."niri/niri-hardware.kdl".source = mkSymlink

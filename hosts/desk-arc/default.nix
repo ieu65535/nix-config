@@ -98,12 +98,12 @@
     noto-fonts-color-emoji
   ];
   
-  programs.nix-ld = {
-    enable = true;
-    libraries = with pkgs; [
-      # stdenv.cc.cc
-    ];
-  };
+  # programs.nix-ld = {
+  #   enable = true;
+  #   libraries = with pkgs; [
+  #     # stdenv.cc.cc
+  #   ];
+  # };
 
   zramSwap.enable = true; # Creates a zram block device and uses it as a swap device
 

@@ -27,6 +27,8 @@
   # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-auto-optimise-store
   nix.settings.auto-optimise-store = true;
 
+  nix.settings.trusted-users = [ "@wheel" ];
+
   nixpkgs.config.allowUnfree = true;
 
   services.displayManager = {

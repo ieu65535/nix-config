@@ -33,7 +33,8 @@
 
     # --- ssh ---
 
-    nixpkgs.url = "git+ssh://git@github.com/NixOS/nixpkgs.git?ref=nixos-unstable&shallow=1";
+    # nixpkgs.url = "git+ssh://git@github.com/NixOS/nixpkgs.git?ref=nixos-unstable&shallow=1";
+    nixpkgs.url = "git+ssh://git@github.com/NixOS/nixpkgs.git?ref=nixos-unstable&rev=d3498f786f97ac0bded21b34bae0bf3809b45aa3&shallow=1";
 
     noctalia.url = "git+ssh://git@github.com/noctalia-dev/noctalia.git?ref=cachix&shallow=1";
 

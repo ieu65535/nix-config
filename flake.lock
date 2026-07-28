@@ -46,11 +46,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783008725,
-        "narHash": "sha256-jGiy6+sxjNWXSjp25uoJuNfyH9zBK1PEDY0lVoL4ibQ=",
+        "lastModified": 1784288435,
+        "narHash": "sha256-ReRHaLgr/uVqdD8afFSn+myXIfpHeOhP0yYe0TJqAA8=",
         "owner": "cachix",
         "repo": "git-hooks.nix",
-        "rev": "bca82caa46d5ec0f5d422c61fb1e30bc51313cbe",
+        "rev": "43b3c1ab9d40fb1dbb008f451988a91e375825e9",
         "type": "github"
       },
       "original": {
@@ -66,10 +66,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1784129366,
-        "narHash": "sha256-N5JiyICSeQF14x+OQebNyPpYowOT9Rs1iKyeCylSzOA=",
+        "lastModified": 1785168662,
+        "narHash": "sha256-kGJTc0oEUQuEwV66lSlMxYtOEtpk9N/HS43k+rFAvs8=",
         "ref": "refs/heads/master",
-        "rev": "165228b0efefc3e635e5174020c40ea64271dc25",
+        "rev": "cbb77679b3d992c8b62f884cd3a84af534a28621",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/nix-community/home-manager.git"
@@ -90,10 +90,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1784258098,
-        "narHash": "sha256-tgRJ/WwNnZbmuEqaJET+xPmAt2hBK5kEutNM4k6RUko=",
+        "lastModified": 1785207248,
+        "narHash": "sha256-SrVCwM5vEDVDiHasiYgoakQWTfyog/MU63PFz2RneBU=",
         "ref": "refs/heads/master",
-        "rev": "79a2e20b272c80cdff340656399369e99f55c526",
+        "rev": "424ce3e87bef8b7f2e6fa3c748cfaaafcf0d4c9b",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/fufexan/nix-gaming.git"
@@ -106,16 +106,17 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1784120854,
-        "narHash": "sha256-KesHgItiZPgGX740axSiQLcIQ8D24MDqNpkKYWIek8k=",
+        "lastModified": 1785110946,
+        "narHash": "sha256-WWuWxmXKzGZWryswWlijP3Mjp6aGy4Ngmeil5nGMMjk=",
         "ref": "nixos-unstable",
-        "rev": "753cc8a3a87467296ddd1fa93f0cc3e81120ee46",
+        "rev": "d3498f786f97ac0bded21b34bae0bf3809b45aa3",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/NixOS/nixpkgs.git"
       },
       "original": {
         "ref": "nixos-unstable",
+        "rev": "d3498f786f97ac0bded21b34bae0bf3809b45aa3",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/NixOS/nixpkgs.git"
@@ -138,11 +139,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1783522502,
-        "narHash": "sha256-nFgG4gPQueCgP8LidXsdI2lYPrSwTcmDl6afcVn7F/U=",
-        "rev": "0bb7ec54c8483066ec9d7720e780a5caa71f8612",
+        "lastModified": 1784796856,
+        "narHash": "sha256-vwxWgF+Gj276WznzGb1LxGsK/39HaQwgQXiU3EkC844=",
+        "rev": "e2587caef70cea85dd97d7daab492899902dbf5d",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1031299.0bb7ec54c848/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1040357.e2587caef70c/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -154,10 +155,10 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1784257912,
-        "narHash": "sha256-gtwefTrgOhRoZVImkvKccqctx/dlC6Ai2wmmg1kbdX8=",
+        "lastModified": 1785210083,
+        "narHash": "sha256-2hTB7OIpToEIzgEswU2oasOzQX6ljGJrxMvRB3gBdnA=",
         "ref": "cachix",
-        "rev": "a336b7d1b9d5175af3dd222a4571fe3e51427211",
+        "rev": "9e406c6cd0f704f7f3fd795171c89209d4d491be",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/noctalia-dev/noctalia.git"
@@ -176,10 +177,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1784248874,
-        "narHash": "sha256-bDwWO3htFoWqDu4T8d7jeGZOeBCNMeX/RyrBus1qcF4=",
+        "lastModified": 1785030494,
+        "narHash": "sha256-ck4CpAHRKhwf3w/1+CYh+UISQXD+k+HyjIL9LP9Feis=",
         "ref": "refs/heads/main",
-        "rev": "f46e83f6992c4bade22522f911a6f005e732ce80",
+        "rev": "32b015ff9d2c8268f9f195e719c150d2c0513814",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/noctalia-dev/noctalia-greeter.git"

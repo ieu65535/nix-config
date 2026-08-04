@@ -48,6 +48,12 @@ environment {
     EDITOR "vim"
 }
 
+gestures {
+    hot-corners { 
+        off 
+    }
+}
+
 spawn-at-startup "fcitx5" "-d"
 
 cursor {

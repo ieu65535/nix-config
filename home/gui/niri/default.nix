@@ -3,7 +3,7 @@
 let
   cfg = config.gui;
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  confDir = "${config.home.homeDirectory}/nix-config/home/niri/conf";
+  confDir = "${config.home.homeDirectory}/nix-config/home/gui/niri/conf";
 in
 {
   imports = [

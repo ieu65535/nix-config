@@ -4,7 +4,7 @@ let
 in
 {
   imports = [
-    ../../home/desktop
+    ../../home/gui
     ../../home/terminal/kitty
     ../../users/ieu/home.nix
     ../../home/gaming.nix
@@ -13,7 +13,7 @@ in
 
   gui = {
     enable = true;
-    shell = "noctalia";
+    shell = "dms";
   };
 
   xdg.configFile."niri/niri-hardware.kdl".source = mkSymlink

@@ -2,7 +2,7 @@
 let
   cfg = config.gui;
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  confDir = "${config.home.homeDirectory}/nix-config/home/noctalia/conf";
+  confDir = "${config.home.homeDirectory}/nix-config/home/gui/noctalia/conf";
 in {
   config = lib.mkIf (cfg.shell == "noctalia") {
     xdg.configFile = {

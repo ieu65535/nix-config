@@ -6,8 +6,8 @@ let
 in
 {
   imports = [
-    ../noctalia
-    ../niri
+    ./noctalia
+    ./niri
     inputs.noctalia.homeModules.default
     inputs.dms.homeModules.dank-material-shell
   ];

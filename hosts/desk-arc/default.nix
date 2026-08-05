@@ -33,7 +33,7 @@
 
   display-manager = {
     enable = true;
-    greeter = "noctalia-greeter";
+    greeter = "dms-greeter";
   };
 
   services = {

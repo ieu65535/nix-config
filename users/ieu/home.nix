@@ -1,7 +1,6 @@
 { config, pkgs, inputs, ... }:
 {
   imports = [
-    ../../home/terminal/kitty.nix
     ../../home/editors/vscode
     ../../home/browsers/chrome.nix
     ../../home/fcitx5

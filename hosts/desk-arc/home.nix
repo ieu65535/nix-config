@@ -5,6 +5,7 @@ in
 {
   imports = [
     ../../home/desktop
+    ../../home/terminal/kitty.nix
     ../../users/ieu/home.nix
     ../../home/gaming.nix
     # ../../home/im/qq.nix

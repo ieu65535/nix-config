@@ -31,6 +31,11 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
 
+    # dms = {
+    #   url = "github:AvengeMedia/DankMaterialShell/stable";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
     # --- ssh ---
 
     # nixpkgs.url = "git+ssh://git@github.com/NixOS/nixpkgs.git?ref=nixos-unstable&shallow=1";
@@ -50,6 +55,11 @@
 
     nix-gaming = {
       url = "git+ssh://git@github.com/fufexan/nix-gaming.git?shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    dms = {
+      url = "git+ssh://git@github.com/AvengeMedia/DankMaterialShell.git?ref=stable&shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

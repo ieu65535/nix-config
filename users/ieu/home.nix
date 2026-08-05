@@ -1,8 +1,6 @@
 { config, pkgs, inputs, ... }:
 {
   imports = [
-    inputs.noctalia.homeModules.default
-    ../../home/niri
     ../../home/terminal/kitty.nix
     ../../home/editors/vscode
     ../../home/browsers/chrome.nix

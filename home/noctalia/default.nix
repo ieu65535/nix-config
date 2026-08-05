@@ -1,11 +1,18 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 let
+  cfg = config.desktop;
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
   confDir = "${config.home.homeDirectory}/nix-config/home/noctalia/conf";
 in {
-  programs.noctalia.enable = true;
+  imports = [
+    inputs.noctalia.homeModules.default
+  ];
 
-  xdg.configFile = {
-    "noctalia".source = mkSymlink "${confDir}";
+  config = lib.mkIf (cfg.shell == "noctalia") {
+    programs.noctalia.enable = true;
+
+    xdg.configFile = {
+      "noctalia".source = mkSymlink "${confDir}";
+    };
   };
 }

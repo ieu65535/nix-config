@@ -5,13 +5,16 @@ in
 {
   imports = [
     ../../home/desktop
-    ../../home/terminal/kitty.nix
+    ../../home/terminal/kitty
     ../../users/ieu/home.nix
     ../../home/gaming.nix
     # ../../home/im/qq.nix
   ];
 
-  desktop.shell = "noctalia"; # Change to "dms" to switch to DankMaterialShell
+  gui = {
+    enable = true;
+    shell = "noctalia";
+  };
 
   xdg.configFile."niri/niri-hardware.kdl".source = mkSymlink
     "${config.home.homeDirectory}/nix-config/hosts/desk-arc/niri-hardware.kdl";

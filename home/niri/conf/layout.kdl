@@ -2,6 +2,8 @@
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
+    background-color "transparent"
+
     // Set gaps around windows in logical pixels.
     gaps 10
 
@@ -90,11 +92,11 @@ layout {
         off
 
         width 4
-        active-color "#ffc87f"
-        inactive-color "#505050"
+        active-color   "#707070"      // Neutral gray
+        inactive-color "#d0d0d0"      // Light gray
 
         // Color of the border around windows that request your attention.
-        urgent-color "#9b0000"
+        urgent-color   "#cc4444"      // Softer red
 
         // Gradients can use a few different interpolation color spaces.
         // For example, this is a pastel rainbow gradient via in="oklch longer hue".
@@ -129,13 +131,13 @@ layout {
         // pixels and match the CSS box-shadow properties.
 
         // Softness controls the shadow blur radius.
-        softness 20
+        softness 30
 
         // Spread expands the shadow.
-        spread 2
+        spread 5
 
         // Offset moves the shadow relative to the window.
-        offset x=-4 y=-4
+        offset x=0 y=5
 
         // You can also change the shadow color and opacity.
         color "rgba(0, 0, 0, 0.7)"

@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 {
   imports = [
     ./configuration.nix
@@ -9,7 +9,7 @@
     ../../modules/i18n.nix
     ../../modules/clash.nix
     ../../modules/btrfs.nix
-    inputs.noctalia-greeter.nixosModules.default
+    ../../modules/display-manager.nix
   ];
 
   boot.loader.systemd-boot.configurationLimit = 10;
@@ -31,34 +31,9 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  services.displayManager = {
-    defaultSession = "niri";
-    sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
-    autoLogin = {
-      enable = true;
-      user = "ieu";
-    };
-  };
-
-  programs.noctalia-greeter = {
+  display-manager = {
     enable = true;
-    greeter-args = "--session niri";
-    settings = {
-      session.default = "niri";
-      user.default = "ieu";
-      outputs.name = "DP-3";
-      # cursor = {
-      #   theme = "Bibata-Modern-Ice";
-      #   size = 24;
-      #   path = "${pkgs.bibata-cursors}/share/icons";
-      # };
-      # keyboard = {
-      #   layout = "us";
-      # };
-    };
+    greeter = "noctalia-greeter";
   };
 
   services = {

@@ -6,10 +6,8 @@ let
 in
 {
   imports = [
-    ../noctalia
-    ../niri
-    inputs.noctalia.homeModules.default
-    inputs.dms.homeModules.dank-material-shell
+    ./display-manager.nix
+    inputs.noctalia.nixosModules.default
   ];
   
   options.gui = {
@@ -22,7 +20,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
+    environment.systemPackages = with pkgs; [
       # Niri v25.08 will create X11 sockets on disk, export $DISPLAY, and spawn `xwayland-satellite` on-demand when an X11 client connects
       xwayland-satellite
 
@@ -34,12 +32,15 @@ in
       wl-clipboard
     ];
 
-    programs.dank-material-shell = lib.mkIf (cfg.shell == "dms") {
+    programs.dms-shell = lib.mkIf (cfg.shell == "dms") {
       enable = true;
-      package = pkgs.dms-shell;
     };
 
-    programs.noctalia.enable = lib.mkIf (cfg.shell == "noctalia") true;
+    programs.noctalia = lib.mkIf (cfg.shell == "noctalia") {
+      enable = true;
 
+      # Enables NetworkManager, Bluetooth, UPower, and a power profile service.
+      recommendedServices.enable = true;
+    };
   };
 }

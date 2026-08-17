@@ -10,6 +10,10 @@ in
     ./fuzzel.nix
   ];
 
+  home.packages = with pkgs; [
+    adwaita-icon-theme
+  ];
+
   xdg.configFile = {
     "niri/config.kdl".source = mkSymlink (
       if cfg.shell == "noctalia" 
@@ -32,11 +36,21 @@ in
       source = mkSymlink "${confDir}/startup.kdl";
     };
 
-    "niri/dms" = lib.mkIf (cfg.shell == "dms") {
-      source = mkSymlink "${confDir}/dms";
-    };
     "niri/noctalia" = lib.mkIf (cfg.shell == "noctalia") {
       source = mkSymlink "${confDir}/noctalia";
+    };
+
+    "niri/dms/binds.kdl" = lib.mkIf (cfg.shell == "dms") {
+      source = mkSymlink "${confDir}/dms/binds.kdl";
+    };
+    "niri/dms/alttab.kdl" = lib.mkIf (cfg.shell == "dms") {
+      source = mkSymlink "${confDir}/dms/alttab.kdl";
+    };
+    "niri/dms/layout.kdl" = lib.mkIf (cfg.shell == "dms") {
+      source = mkSymlink "${confDir}/dms/layout.kdl";
+    };
+    "niri/dms/wpblur.kdl" = lib.mkIf (cfg.shell == "dms") {
+      source = mkSymlink "${confDir}/dms/wpblur.kdl";
     };
   };
 }

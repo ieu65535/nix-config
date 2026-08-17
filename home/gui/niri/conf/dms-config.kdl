@@ -8,7 +8,6 @@ include "layout.kdl"
 include "input.kdl"
 include "binds.kdl"
 include "windowrules.kdl"
-include "dms/wpblur.kdl"
 
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
 
@@ -140,3 +139,4 @@ include optional=true "dms/colors.kdl"
 include optional=true "dms/layout.kdl"
 include optional=true "dms/alttab.kdl"
 include optional=true "dms/binds.kdl"
+include optional=true "dms/wpblur.kdl"

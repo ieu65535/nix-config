@@ -1,30 +1,36 @@
 { pkgs, config, lib, ... }:
-let
-  cfg = config.gui;
-  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  confDir = "${config.home.homeDirectory}/nix-config/home/terminal/kitty/conf";
-in 
 {
   programs.kitty = {
     enable = true;
-    font = lib.mkIf (cfg.shell == "noctalia") {
+    font = {
       name = "JetBrains Maple Mono";
-      size = 13.5;
+      size = 14;
     };
-    settings = lib.mkIf (cfg.shell == "noctalia") {
-      window_padding_width = 5;
+    settings = {
+      window_padding_width = 12;
       hide_window_decorations = "yes";
       background_opacity = "0.8";
+      background_blur = 32;
       confirm_os_window_close = 0;
       shell = "${pkgs.fish}/bin/fish";
       cursor_shape = "block";
-      cursor_trail = 1;
-      shell_integration = "no-cursor";
+      cursor_blink_interval = 1;
+      shell_integration = "enabled";
+      scrollback_lines = 3000;
+      copy_on_select = "yes";
+      strip_trailing_spaces = "smart";
+      tab_bar_style = "powerline";
+      tab_bar_align = "left";
+      # 快捷键映射
+      "map ctrl+shift+n" = "new_window";
+      "map ctrl+t" = "new_tab";
+      "map ctrl+plus" = "change_font_size all +1.0";
+      "map ctrl+minus" = "change_font_size all -1.0";
+      "map ctrl+0" = "change_font_size all 0";
     };
-  };
-  xdg.configFile = lib.mkIf (cfg.shell == "dms") {
-    "kitty/kitty.conf".source = mkSymlink "${confDir}/kitty.conf";
-    # "kitty/dank-theme.conf".source = mkSymlink "${confDir}/dank-theme.conf";
-    # "kitty/dank-tabs.conf".source = mkSymlink "${confDir}/dank-tabs.conf";
+    extraConfig = ''
+      include dank-tabs.conf
+      include dank-theme.conf
+    '';
   };
 }

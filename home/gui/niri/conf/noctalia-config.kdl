@@ -10,6 +10,7 @@ include "startup.kdl"
 include "windowrules.kdl"
 include "niri-hardware.kdl"
 include "noctalia.kdl"
+include "noctalia/binds.kdl"
 
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.

@@ -20,6 +20,7 @@ in
     "niri/layout.kdl".source = mkSymlink "${confDir}/layout.kdl";
     "niri/input.kdl".source = mkSymlink "${confDir}/input.kdl";
     "niri/windowrules.kdl".source = mkSymlink "${confDir}/windowrules.kdl";
+    "niri/binds.kdl".source = mkSymlink "${confDir}/binds.kdl";
 
     "niri/scripts/niri-pick".source = mkSymlink "${confDir}/scripts/niri-pick";
     
@@ -27,15 +28,15 @@ in
     "niri/noctalia.kdl" = lib.mkIf (cfg.shell == "noctalia") {
       source = mkSymlink "${confDir}/noctalia.kdl";
     };
-    "niri/binds.kdl" = lib.mkIf (cfg.shell == "noctalia") {
-      source = mkSymlink "${confDir}/binds.kdl";
-    };
     "niri/startup.kdl" = lib.mkIf (cfg.shell == "noctalia") {
       source = mkSymlink "${confDir}/startup.kdl";
     };
 
     "niri/dms" = lib.mkIf (cfg.shell == "dms") {
       source = mkSymlink "${confDir}/dms";
+    };
+    "niri/noctalia" = lib.mkIf (cfg.shell == "noctalia") {
+      source = mkSymlink "${confDir}/noctalia";
     };
   };
 }

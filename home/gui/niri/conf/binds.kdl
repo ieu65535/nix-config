@@ -15,8 +15,7 @@ binds {
 
     // Fn keys
     Mod+F1 hotkey-overlay-title="开关输入法 Toggle fcitx" {spawn-sh "pkill fcitx5 || fcitx5 "; }
-    Mod+F2 hotkey-overlay-title="设置 Settings" { spawn-sh "noctalia msg settings-toggle"; }
-    Mod+F3 hotkey-overlay-title="录屏 Screen record" { spawn "";}
+    // Mod+F3 hotkey-overlay-title="录屏 Screen record" { spawn "shorin-screenrec-menu";}
     Mod+P hotkey-overlay-title="提取窗口信息 Pick information" { spawn "~/.config/niri/scripts/niri-pick" "focus"; }
 
     // Terminal
@@ -27,50 +26,41 @@ binds {
     //打开浏览器
     Mod+B hotkey-overlay-title="浏览器 Browser" { spawn "google-chrome"; }
     // 文档管理器。如果有thunar的话会优先打开thunar，没有的话会打开nautilus
-    Mod+E hotkey-overlay-title="文档管理器 Filemanager" { spawn-sh "thunar || env GSK_RENDERER=gl GTK_IM_MODULE=fcitx  nautilus"; }
-    // 另一个打开nautilus的快捷键，主要是为了在同时安装thunar和nautilus的情况下打开naultilus
-    Mod+Alt+E hotkey-overlay-title=null {spawn "env" "GSK_RENDERER=gl" "GTK_IM_MODULE=fcitx"  "nautilus" "--new-window";}
-
-    // App launcher
-    // Mod+Z hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Mod+Z hotkey-overlay-title="程序菜单 Applauncher" { spawn-sh "noctalia msg panel-toggle launcher || fuzzel"; }
-    // 剪贴板
-    Mod+Alt+V hotkey-overlay-title="剪贴板 Clipboard" {spawn-sh "noctalia msg panel-toggle clipboard";} 
-    // 壁纸选择
-    Mod+Alt+W hotkey-overlay-title="壁纸切换 Wallpaper" { spawn-sh "noctalia msg panel-toggle wallpaper";}
-    // 随机切换壁纸
-    Mod+F10 hotkey-overlay-title="随机切换壁纸 Random wallpaper" { spawn-sh "noctalia msg wallpaper-random";}
-    // 随机下载壁纸
-    // Mod+Shift+F10 hotkey-overlay-title="随机下载壁纸 Random Download wallpaper" { spawn "~/.local/bin/random-anime-wallpaper-noctalia";}
-    
-    Mod+F5 hotkey-overlay-title="Steam" { spawn-sh "LIBGL_ALWAYS_SOFTWARE=1 steam"; }
+    Mod+E hotkey-overlay-title="文档管理器 Filemanager" { spawn-sh "thunar || env GSK_RENDERER=gl GTK_IM_MODULE=fcitx nautilus --new-window"; }
+    // 另一个打开nautilus的快捷键，主要是为了在同时安装thunar和nautilus的情况下打开nautilus
+    Mod+Alt+E hotkey-overlay-title=null {spawn "env" "GSK_RENDERER=gl" "GTK_IM_MODULE=fcitx" "nautilus" "--new-window";}
 
     // Screenshot
-    Print { spawn "niri" "msg" "action" "screenshot" "--show-pointer" "false"; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    // 截图相关
+    Mod+Alt+A  hotkey-overlay-title="选取区域截图 Select screenshot"  { spawn "niri" "msg" "action" "screenshot" "--show-pointer" "false"; }
+    Mod+Alt+Ctrl+A  hotkey-overlay-title="截取聚焦窗口 Focus-window screenshot" { spawn-sh "niri msg action screenshot-window"; }
+    Mod+Alt+Ctrl+Shift+A  hotkey-overlay-title="截取显示器 Monitor screenshot" { spawn-sh "niri msg action screenshot-screen --show-pointer false"; }
+    Print  hotkey-overlay-title=null {spawn-sh "niri msg action screenshot --show-pointer false";}
+    Ctrl+Print  hotkey-overlay-title=null { spawn-sh "niri msg action screenshot-window --show-pointer false"; }
+    Shift+Print  hotkey-overlay-title=null { spawn-sh "niri msg action screenshot-screen --show-pointer false"; }
+    // Mod+Shift+S  hotkey-overlay-title="截图后按下此键进行编辑 Edit the image after screenshot" { spawn-sh "wl-paste | satty -f -";}
 
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
-    // Core Noctalia binds
-    Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
-    Mod+Shift+S { spawn-sh "noctalia msg settings-toggle"; }
-
+    // 切换聚焦
+    // super+方向键    
     // Focus
-    Mod+Left  { focus-column-left; }
+    Mod+Left hotkey-overlay-title=null { focus-column-left; }
     Mod+Down  { focus-window-down; }
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
+    // super+vim key
     Mod+H     { focus-column-left; }
     Mod+J     { focus-window-down; }
     Mod+K     { focus-window-up; }
     Mod+L     { focus-column-right; }
 
-    // Move window
+    // 移动column（列）
+    // super+ctrl+方向键
     Mod+Ctrl+Left  { move-column-left; }
     Mod+Ctrl+Down  { move-window-down; }
     Mod+Ctrl+Up    { move-window-up; }
     Mod+Ctrl+Right { move-column-right; }
+    // super+ctrl+vimkey
     Mod+Ctrl+H     { move-column-left; }
     Mod+Ctrl+J     { move-window-down; }
     Mod+Ctrl+K     { move-window-up; }
@@ -82,21 +72,25 @@ binds {
     // Mod+K     { focus-window-or-workspace-up; }
     // Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
     // Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
-
+    
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
     Mod+Ctrl+Home { move-column-to-first; }
     Mod+Ctrl+End  { move-column-to-last; }
 
+    // 切换显示器聚焦
+    // mod+shift+方向键
     Mod+Shift+Left  { focus-monitor-left; }
     Mod+Shift+Down  { focus-monitor-down; }
     Mod+Shift+Up    { focus-monitor-up; }
     Mod+Shift+Right { focus-monitor-right; }
+    // mod+shift+vimkey
     Mod+Shift+H     { focus-monitor-left; }
     Mod+Shift+J     { focus-monitor-down; }
     Mod+Shift+K     { focus-monitor-up; }
     Mod+Shift+L     { focus-monitor-right; }
 
+    // 跨显示器移动column
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
@@ -105,6 +99,28 @@ binds {
     Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+A     { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+S     { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+W     { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+D     { move-column-to-monitor-right; }
+
+    // 移动整个工作区
+    // mod+shift跨显示器，alt代表移动整个工作区，再加上三组方向键
+    Mod+Shift+Alt+W  { move-workspace-to-monitor-up; }
+    Mod+Shift+Alt+S  { move-workspace-to-monitor-down; }
+    Mod+Shift+Alt+D  { move-workspace-to-monitor-right; }
+    Mod+Shift+Alt+A  { move-workspace-to-monitor-left; }
+
+    Mod+Shift+Alt+K  { move-workspace-to-monitor-up; }
+    Mod+Shift+Alt+J  { move-workspace-to-monitor-down; }
+    Mod+Shift+Alt+L  { move-workspace-to-monitor-right; }
+    Mod+Shift+Alt+H  { move-workspace-to-monitor-left; }
+
+    Mod+Shift+Alt+Up  { move-workspace-to-monitor-up; }
+    Mod+Shift+Alt+Down  { move-workspace-to-monitor-down; }
+    Mod+Shift+Alt+Right  { move-workspace-to-monitor-right; }
+    Mod+Shift+Alt+Left  { move-workspace-to-monitor-left; }
+
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
@@ -114,11 +130,12 @@ binds {
     // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
     // ...
 
-    // Workspaces
+    // === 工作区导航补充 (无冲突项) ===
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
     Mod+U              { focus-workspace-down; }
     Mod+I              { focus-workspace-up; }
+
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
     Mod+Ctrl+U         { move-column-to-workspace-down; }
@@ -165,6 +182,7 @@ binds {
     // Mod+TouchpadScrollDown { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
     // Mod+TouchpadScrollUp   { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
 
+    // === 数字工作区 (1-9) ===
     // You can refer to workspaces by index. However, keep in mind that
     // niri is a dynamic workspace system, so these commands are kind of
     // "best effort". Trying to refer to a workspace index bigger than
@@ -198,27 +216,31 @@ binds {
     // Switches focus between the current and the previous workspace.
     // Mod+Tab { focus-workspace-previous; }
 
+    // mod+左右方括号 移动窗口（不是移动column，是允许移动到另一个column的窗口移动）
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
     // If the window is already in a column, they will expel it out.
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
 
+    // mod+逗号/句号 把窗口合并或者踢出当前的column
     // Consume one window from the right to the bottom of the focused column.
     Mod+Comma  { consume-window-into-column; }
     // Expel the bottom window from the focused column to the right.
     Mod+Period { expel-window-from-column; }
-
+    
+    // 按照预设切换窗口宽度
     // Cycle through widths set in preset-column-widths.
     Mod+R { switch-preset-column-width; }
     // Cycling through the presets in reverse order is also possible.
     Mod+Shift+R { switch-preset-column-width-back; }
 
+    // 按照预设切换窗口高度
     Mod+Ctrl+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
 
     // Close / quit
-    Mod+Q { close-window; }
+    Mod+Q repeat=false { close-window; }
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
 
@@ -230,17 +252,20 @@ binds {
     // maximize-window-to-edges doesn't: the window expands to the edges of the screen.
     // This bind corresponds to normal window maximizing,
     // e.g. by double-clicking on the titlebar.
-    Mod+M { maximize-window-to-edges; }
+    // Mod+M { maximize-window-to-edges; }
 
+    // 增加窗口宽度占满空闲空间
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
     Mod+Ctrl+F { expand-column-to-available-width; }
 
+    // 居中当前聚焦的column
     Mod+C { center-column; }
 
     // Center all fully visible columns on screen.
     Mod+Ctrl+C { center-visible-columns; }
 
+    // mod+加减号调整窗口宽度
     // Finer width adjustments.
     // This command can also:
     // * set width in pixels: "1000"
@@ -252,6 +277,7 @@ binds {
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }
 
+    // mod+shift+加减号调整窗口高度
     // Finer height adjustments when in column with other windows.
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
@@ -260,6 +286,7 @@ binds {
     Mod+V       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
+    // 开启column的标签页模式
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
     // rather than stacked on top of each other.
@@ -273,6 +300,13 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
+    // mod+鼠标侧键 上下切换聚焦
+    Mod+MouseForward { focus-window-up; }
+    Mod+MouseBack    { focus-window-down; }
+
+    Alt+grave hotkey-overlay-title=null { switch-focus-between-floating-and-tiling; }
+    Mod+Alt+N hotkey-overlay-title=null { switch-focus-between-floating-and-tiling; }
+
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
     // so they may, for example, forward the key presses as-is to a remote machine.
@@ -283,6 +317,13 @@ binds {
     // which ensures niri always processes them, even when an inhibitor is active.
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
+    // === 其他备用快捷键 ===
+    // 备用截图键
+    XF86Launch1 { screenshot; }
+    Ctrl+XF86Launch1 { screenshot-screen; }
+    Alt+XF86Launch1 { screenshot-window; }
+    
+    // 关闭显示器备用
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
@@ -292,40 +333,9 @@ binds {
     // or do a four-finger swipe up on a touchpad.
     Mod+O repeat=false { toggle-overview; }
 
-    // Scroll through workspaces
-    // Mod+Shift+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
-    // Mod+Shift+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
-
-    // Scroll through columns
-    // Mod+WheelScrollDown { focus-column-right; }
-    // Mod+WheelScrollUp   { focus-column-left; }
-    // Mod+Ctrl+WheelScrollDown { move-column-right; }
-    // Mod+Ctrl+WheelScrollUp   { move-column-left; }
-
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
-    // Example volume keys mappings for PipeWire & WirePlumber.
-    // The allow-when-locked=true property makes them work even when the session is locked.
-    // Using spawn-sh allows to pass multiple arguments together with the command.
-    // "-l 1.0" limits the volume to 100%.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-
-    // Example media keys mapping using playerctl.
-    // This will work with any MPRIS-enabled media player.
-    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
-    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
-    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
-
-    // Example brightness key mappings for brightnessctl.
-    // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
-    // but you need to manually put each argument in separate "" quotes.
-    XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
 }

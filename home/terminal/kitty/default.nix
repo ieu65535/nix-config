@@ -24,7 +24,7 @@ in
   };
   xdg.configFile = lib.mkIf (cfg.shell == "dms") {
     "kitty/kitty.conf".source = mkSymlink "${confDir}/kitty.conf";
-    "kitty/dank-theme.conf".source = mkSymlink "${confDir}/dank-theme.conf";
-    "kitty/dank-tabs.conf".source = mkSymlink "${confDir}/dank-tabs.conf";
+    # "kitty/dank-theme.conf".source = mkSymlink "${confDir}/dank-theme.conf";
+    # "kitty/dank-tabs.conf".source = mkSymlink "${confDir}/dank-tabs.conf";
   };
 }

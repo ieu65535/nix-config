@@ -1,0 +1,57 @@
+binds {
+    // Fn keys
+    Mod+F2 hotkey-overlay-title="设置 Settings" { spawn-sh "noctalia msg settings-toggle"; }
+
+    // App launcher
+    // Mod+Z hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+Z hotkey-overlay-title="程序菜单 Applauncher" { spawn-sh "noctalia msg panel-toggle launcher || fuzzel"; }
+    // 剪贴板
+    Mod+Alt+V hotkey-overlay-title="剪贴板 Clipboard" {spawn-sh "noctalia msg panel-toggle clipboard";} 
+    // 壁纸选择
+    Mod+Alt+W hotkey-overlay-title="壁纸切换 Wallpaper" { spawn-sh "noctalia msg panel-toggle wallpaper";}
+    // 随机切换壁纸
+    Mod+F10 hotkey-overlay-title="随机切换壁纸 Random wallpaper" { spawn-sh "noctalia msg wallpaper-random";}
+    // 随机下载壁纸
+    // Mod+Shift+F10 hotkey-overlay-title="随机下载壁纸 Random Download wallpaper" { spawn "~/.local/bin/random-anime-wallpaper-noctalia";}
+    
+    Mod+F5 hotkey-overlay-title="Steam" { spawn-sh "LIBGL_ALWAYS_SOFTWARE=1 steam"; }
+
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+
+    // Core Noctalia binds
+    Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
+    Mod+Shift+S { spawn-sh "noctalia msg settings-toggle"; }
+
+    // While maximize-column leaves gaps and borders around the window,
+    // maximize-window-to-edges doesn't: the window expands to the edges of the screen.
+    // This bind corresponds to normal window maximizing,
+    // e.g. by double-clicking on the titlebar.
+    Mod+M { maximize-window-to-edges; }
+
+    // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
+    // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
+    // For example, this is a standard bind to toggle the screen reader (orca).
+    Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
+
+    // Example volume keys mappings for PipeWire & WirePlumber.
+    // The allow-when-locked=true property makes them work even when the session is locked.
+    // Using spawn-sh allows to pass multiple arguments together with the command.
+    // "-l 1.0" limits the volume to 100%.
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    // Example media keys mapping using playerctl.
+    // This will work with any MPRIS-enabled media player.
+    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
+    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+
+    // Example brightness key mappings for brightnessctl.
+    // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
+    // but you need to manually put each argument in separate "" quotes.
+    XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
+}

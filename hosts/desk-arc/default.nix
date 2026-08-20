@@ -10,6 +10,7 @@
     ../../modules/clash.nix
     ../../modules/btrfs.nix
     ../../modules/display-manager.nix
+    ../../modules/xilinx.nix
   ];
 
   boot.loader.systemd-boot.configurationLimit = 10;

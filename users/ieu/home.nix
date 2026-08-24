@@ -27,5 +27,10 @@
 
     fish.enable = true;
 
+    devenv = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
   };
 }

@@ -8,7 +8,7 @@ in
     ../../home/terminal/kitty
     ../../users/ieu/home.nix
     ../../home/gaming.nix
-    # ../../home/im/qq.nix
+    ../../home/im/qq.nix
   ];
 
   gui = {

@@ -1,10 +1,6 @@
-{ config, pkgs, inputs, ... }:
 {
   imports = [
-    ../../home/editors/vscode
-    ../../home/browsers/chrome.nix
     ../../home/fcitx5
-    # ../../home/browsers/firefox.nix
     # ../../home/im/qq.nix
     # ../../home/im/wechat.nix
   ];

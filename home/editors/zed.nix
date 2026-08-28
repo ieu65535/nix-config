@@ -8,6 +8,7 @@
         dark = "One Dark";
         light = "One Light";
       };
+      soft_wrap = "bounded";
       auto_update = false;
       vim_mode = true;
       vim = {

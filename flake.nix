@@ -39,6 +39,7 @@
     # --- ssh ---
 
     nixpkgs.url = "git+ssh://git@github.com/NixOS/nixpkgs.git?ref=nixos-unstable&shallow=1";
+    nixos-wsl.url = "git+ssh://git@github.com/nix-community/NixOS-WSL.git?ref=main&shallow=1";
 
     noctalia.url = "git+ssh://git@github.com/noctalia-dev/noctalia.git?ref=cachix&shallow=1";
 
@@ -105,6 +106,15 @@
           ./hosts/desk-arc
           # anime-games-launcher.nixosModules.anime-games-launcher
           home-manager.nixosModules.home-manager
+        ];
+      };
+      wsl = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          inputs.nixos-wsl.nixosModules.default
+          home-manager.nixosModules.home-manager
+          ./hosts/wsl
         ];
       };
     };

@@ -1,6 +1,5 @@
 {
   imports = [
-    ../../home/fcitx5
     # ../../home/im/qq.nix
     # ../../home/im/wechat.nix
   ];
@@ -18,20 +17,5 @@
         init.defaultBranch = "main";
       };
     };
-
-    opencode.enable = true;
-
-    fish.enable = true;
-
-    devenv = {
-      enable = true;
-      enableFishIntegration = true;
-    };
-
-    nix-index = {
-      enable = true;
-      enableFishIntegration = true;
-    };
-
   };
 }

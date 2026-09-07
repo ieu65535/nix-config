@@ -1,6 +1,7 @@
 {
   imports = [
     ../../users/ieu/home.nix
+    ../../home/editors/nvim
   ];
 
   programs = {

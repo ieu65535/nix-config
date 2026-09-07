@@ -30,10 +30,10 @@
     users.ieu = import ./home.nix;
   };
 
-  boot.binfmt = {
-    emulatedSystems = [ "aarch64-linux" ];
-    preferStaticEmulators = true; # required to work with podman
-  };
+  # boot.binfmt = {
+  #   emulatedSystems = [ "aarch64-linux" ];
+  #   preferStaticEmulators = true; # required to work with podman
+  # };
 
   virtualisation = {
     podman = {

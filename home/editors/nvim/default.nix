@@ -11,6 +11,7 @@ in
       lua-language-server
     ];
     plugins = with pkgs.vimPlugins; [
+      blink-cmp
       lazy-nvim
       tokyonight-nvim
       bufferline-nvim

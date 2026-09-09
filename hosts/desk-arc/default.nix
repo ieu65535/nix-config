@@ -47,8 +47,8 @@
   hardware.bluetooth.enable = true;
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
-  
-  environment.systemPackages = [ 
+
+  environment.systemPackages = [
     pkgs.nautilus
     pkgs.mission-center
     pkgs.fastfetch
@@ -62,8 +62,9 @@
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
+    nerd-fonts.jetbrains-mono
   ];
-  
+
   # programs.nix-ld = {
   #   enable = true;
   #   libraries = with pkgs; [

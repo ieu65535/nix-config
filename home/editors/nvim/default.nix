@@ -1,4 +1,4 @@
-{ pkgs, config, ...}:
+{ pkgs, config, lib, ...}:
 let
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
 in
@@ -8,19 +8,62 @@ in
     extraPackages = with pkgs; [
       nil
       nixd
+      ripgrep
       lua-language-server
     ];
     plugins = with pkgs.vimPlugins; [
-      blink-cmp
       lazy-nvim
-      tokyonight-nvim
-      bufferline-nvim
-      nvim-web-devicons
-      nvim-autopairs
-      nvim-surround
-      nvim-lspconfig
     ];
-    initLua = 
+
+    initLua =
+      let
+        treesitter = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
+
+        treesitterGrammars = pkgs.symlinkJoin {
+          name = "nvim-treesitter-grammars";
+          paths = treesitter.dependencies;
+        };
+
+        plugins = with pkgs.vimPlugins; [
+          blink-cmp
+          bufferline-nvim
+          conform-nvim
+          flash-nvim
+          friendly-snippets
+          gitsigns-nvim
+          grug-far-nvim
+          lazydev-nvim
+          LazyVim
+          lualine-nvim
+          mini-ai
+          mini-icons
+          mini-pairs
+          noice-nvim
+          nui-nvim
+          nvim-lint
+          nvim-lspconfig
+          nvim-treesitter-textobjects
+          nvim-ts-autotag
+          persistence-nvim
+          plenary-nvim
+          snacks-nvim
+          todo-comments-nvim
+          tokyonight-nvim
+          treesitter
+          trouble-nvim
+          ts-comments-nvim
+          which-key-nvim
+          { name = "catppuccin"; path = catppuccin-nvim; }
+        ];
+
+        mkEntryFromDrv = drv:
+          if lib.isDerivation drv then
+            { name = "${lib.getName drv}"; path = drv; }
+          else
+            drv;
+
+        lazyPath = pkgs.linkFarm "lazy-plugins" (builtins.map mkEntryFromDrv plugins);
+      in
       # lua
       ''
         require("core.basic")
@@ -31,11 +74,20 @@ in
           pkg = { enabled = false },
           install = { missing = false },
           dev = {
-            path = "~/.local/share/nvim/site/pack/hm/start",
+            path = "${lazyPath}",
             patterns = { "" },
           },
           spec = {
-            { import = "plugins" }
+            { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+            { "mason-org/mason-lspconfig.nvim", enabled = false },
+            { "mason-org/mason.nvim", enabled = false },
+            -- { import = "plugins" },
+            {
+              "nvim-treesitter/nvim-treesitter",
+              opts = {
+                install_dir = "${treesitterGrammars}",
+              }
+            },
           },
         })
     '';

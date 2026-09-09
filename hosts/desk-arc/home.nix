@@ -14,11 +14,11 @@ in
     ../../home/browsers/chrome.nix
     ../../home/editors/vscode
     ../../home/editors/zed.nix
+    ../../home/editors/nvim
   ];
 
   home.packages = with pkgs; [
     nixd
-    nil
   ];
 
   gui = {

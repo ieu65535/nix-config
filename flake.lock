@@ -1,17 +1,34 @@
 {
   "nodes": {
+    "dank-qml-common": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1788376015,
+        "narHash": "sha256-/tT8rTznLADndTwLBzdgzzgfJH1ZhYQibYo5v/F8U+U=",
+        "owner": "AvengeMedia",
+        "repo": "dank-qml-common",
+        "rev": "26396ce432d6c71c3f5367438f96f4a8d667e160",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "dank-qml-common",
+        "type": "github"
+      }
+    },
     "dms": {
       "inputs": {
+        "dank-qml-common": "dank-qml-common",
         "flake-compat": "flake-compat",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1785111455,
-        "narHash": "sha256-aTNuC9NDBnYAeEtFsleeUwmGX3AZlKOutbl+LQRPkmQ=",
+        "lastModified": 1788887664,
+        "narHash": "sha256-Uvp+jbeSoi95wzxeimwsVIIQ17Cf2yY6Lct05Ng3SN0=",
         "ref": "stable",
-        "rev": "069ddab041c738236a8910e4c39b65d9628d3018",
+        "rev": "aa4b99def48637d86a69620c0a8f3cc6aa0c4092",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/AvengeMedia/DankMaterialShell.git"
@@ -76,11 +93,11 @@
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
-        "lastModified": 1785627969,
-        "narHash": "sha256-4dtXQk/NMePegK/nWp5NSeuZKLATItOq61lpEvmXqGw=",
+        "lastModified": 1788450739,
+        "narHash": "sha256-glZLQlzIn1fXH6PazR2iUmTo7kzzyYSshrWhLS9TqCU=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "427bf4bd9435fdf21321c8cc628c24efc14c0f7a",
+        "rev": "31729ca8cbdb4fa927b34e5f4353e6a83f39e993",
         "type": "github"
       },
       "original": {
@@ -101,11 +118,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784288435,
-        "narHash": "sha256-ReRHaLgr/uVqdD8afFSn+myXIfpHeOhP0yYe0TJqAA8=",
+        "lastModified": 1788267358,
+        "narHash": "sha256-nt+lUqYVpc9Y6JeMd2WmXzCDojasdadKo0mWcluvY2Y=",
         "owner": "cachix",
         "repo": "git-hooks.nix",
-        "rev": "43b3c1ab9d40fb1dbb008f451988a91e375825e9",
+        "rev": "27555e2624241fb116b49095df4caaee85a25691",
         "type": "github"
       },
       "original": {
@@ -121,10 +138,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1786999651,
-        "narHash": "sha256-MTGMFlLDTklsXhCp4r5GXB4VAVadPdalXLvUjd/K7h0=",
+        "lastModified": 1788921139,
+        "narHash": "sha256-2wRuvf9UDw1SYWtBcxNmxLeAtNU1i/hc1c0AKQHdvlM=",
         "ref": "refs/heads/master",
-        "rev": "353742587cbaf079b3caee743115d037bc51fea6",
+        "rev": "a2dbe7c2c9333e8234ae8114c7f731784201d108",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/nix-community/home-manager.git"
@@ -145,10 +162,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1786844088,
-        "narHash": "sha256-gVwzq9tiX4oa6jwwoKsBJlKb2kPndVdMrYEvTpfi7DY=",
+        "lastModified": 1788839872,
+        "narHash": "sha256-JrJkREqNWmXhTgiXqZQkl6tusimI7fR+a9tu5npmNM0=",
         "ref": "refs/heads/master",
-        "rev": "23ff06d540f4df5e315d9a45b2388b6581d1c0a5",
+        "rev": "7b9ddc7b9dc0283e45f616311384b84239a33060",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/fufexan/nix-gaming.git"
@@ -198,11 +215,11 @@
     },
     "nixpkgs-lib": {
       "locked": {
-        "lastModified": 1785031560,
-        "narHash": "sha256-OmshNvn2vupOFpYinLUu+1Dnpu4n7Q5N3ggGVNHpkUI=",
+        "lastModified": 1788057806,
+        "narHash": "sha256-DTQSMxzDWmT0zhguthvegnVkn7CFqGCv4IHCzk5ZUpM=",
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
-        "rev": "0e79af5e3d4dcfcd676ab5ba3f95d2e3352e078c",
+        "rev": "596e2e3940e09b2abbeb03f75fa1828c57fcd72c",
         "type": "github"
       },
       "original": {
@@ -213,10 +230,10 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1787001381,
-        "narHash": "sha256-Ue1Yo8gfHdD4TMtNewhA4tkSYeFqXThju0nCyJc3ALo=",
+        "lastModified": 1788881743,
+        "narHash": "sha256-2V9GZGvPfrNzxFozhI9dcqV+c3QdA8YZrvAAzqEB+dI=",
         "ref": "nixos-unstable",
-        "rev": "ec2d622de0773551768cf98f3fc50cbcc003b9c5",
+        "rev": "d6524aaca2ff07876657ae2b323f24be4874944b",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/NixOS/nixpkgs.git"
@@ -230,11 +247,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1786599213,
-        "narHash": "sha256-yjGG65gA1jORt0hWxjzrnw3AYkIn8EWolp8vezwXZ3I=",
-        "rev": "0e251e24a4f24e036a084b6b4b2d2491af4167f4",
+        "lastModified": 1788614874,
+        "narHash": "sha256-PRK1fSEiAcO29DkUoOlsVLGYRK3h1YKVr+qQJB0VcYQ=",
+        "rev": "c043004d1c6985732bcc1cbc5a9c9aecbbb4e0f0",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1053317.0e251e24a4f2/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1068089.c043004d1c69/nixexprs.tar.zst"
       },
       "original": {
         "type": "tarball",
@@ -246,10 +263,10 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1787021519,
-        "narHash": "sha256-OtaVtZZgyeRKzgqkk/js06EglglHCPMA4xyryp7eYzk=",
+        "lastModified": 1788886125,
+        "narHash": "sha256-5rgQFUGr8GXYyyuy8ynrN39WfZzSiO/wqGWjELBOkEY=",
         "ref": "cachix",
-        "rev": "b5c1bfaace0c3b1b36f227970e389f9d20295937",
+        "rev": "d6607b4eafbb92f6d494ebed3e296d4b741c0b58",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/noctalia-dev/noctalia.git"
@@ -268,10 +285,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1786882377,
-        "narHash": "sha256-NfnY22tYDrXfIuyexYyqB+jkO6IK23AqmhcNixkU7pw=",
+        "lastModified": 1788702995,
+        "narHash": "sha256-/+62D/xOeWw1hXS5Q4O8CbjL06aeOted36Xl12PX1KU=",
         "ref": "refs/heads/main",
-        "rev": "10d2c9074d3a9219e03b55b2c97f1cc743447af5",
+        "rev": "eebac5bf6488ac038c5582a89fb369dc146849d9",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/noctalia-dev/noctalia-greeter.git"

@@ -3,6 +3,7 @@
 {
   imports = [
     ../../modules/gc.nix
+    ../../modules/i18n.nix
   ];
 
   wsl.enable = true;

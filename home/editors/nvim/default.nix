@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ...}:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 let
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
 in
@@ -6,10 +11,17 @@ in
   programs.neovim = {
     enable = true;
     extraPackages = with pkgs; [
+      lazygit
+      ripgrep
+      fzf
+      fd
+
       nil
       nixd
-      ripgrep
+      statix
+
       lua-language-server
+      stylua
     ];
     plugins = with pkgs.vimPlugins; [
       lazy-nvim
@@ -38,6 +50,7 @@ in
           mini-ai
           mini-icons
           mini-pairs
+          mini-surround
           noice-nvim
           nui-nvim
           nvim-lint
@@ -53,12 +66,19 @@ in
           trouble-nvim
           ts-comments-nvim
           which-key-nvim
-          { name = "catppuccin"; path = catppuccin-nvim; }
+          {
+            name = "catppuccin";
+            path = catppuccin-nvim;
+          }
         ];
 
-        mkEntryFromDrv = drv:
+        mkEntryFromDrv =
+          drv:
           if lib.isDerivation drv then
-            { name = "${lib.getName drv}"; path = drv; }
+            {
+              name = "${lib.getName drv}";
+              path = drv;
+            }
           else
             drv;
 
@@ -66,8 +86,6 @@ in
       in
       # lua
       ''
-        require("core.basic")
-        require("core.keymap")
         require("lazy").setup({
           defaults = { lazy = true },
           rocks = { enabled = false },
@@ -79,9 +97,11 @@ in
           },
           spec = {
             { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+            { import = "lazyvim.plugins.extras.lang.nix" },
+            { import = "lazyvim.plugins.extras.coding.mini-surround" },
             { "mason-org/mason-lspconfig.nvim", enabled = false },
             { "mason-org/mason.nvim", enabled = false },
-            -- { import = "plugins" },
+            { import = "plugins" },
             {
               "nvim-treesitter/nvim-treesitter",
               opts = {
@@ -90,9 +110,9 @@ in
             },
           },
         })
-    '';
+      '';
   };
 
-  xdg.configFile."nvim/lua".source = mkSymlink
-    "${config.home.homeDirectory}/nix-config/home/editors/nvim/conf";
+  xdg.configFile."nvim/lua".source =
+    mkSymlink "${config.home.homeDirectory}/nix-config/home/editors/nvim/conf";
 }

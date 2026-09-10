@@ -97,8 +97,7 @@ in
           },
           spec = {
             { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-            { import = "lazyvim.plugins.extras.lang.nix" },
-            { import = "lazyvim.plugins.extras.coding.mini-surround" },
+            { import = "extras" },
             { "mason-org/mason-lspconfig.nvim", enabled = false },
             { "mason-org/mason.nvim", enabled = false },
             { import = "plugins" },

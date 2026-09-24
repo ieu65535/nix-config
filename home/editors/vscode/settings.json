@@ -1,3 +1,4 @@
 {
+  "terminal.integrated.defaultProfile.linux": "fish",
   "files.autoSave": "afterDelay"
 }

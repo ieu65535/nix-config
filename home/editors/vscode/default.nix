@@ -11,6 +11,16 @@ in
       jnoortheen.nix-ide
       ms-ceintl.vscode-language-pack-zh-hans
     ];
+
+    profiles.scala.extensions = with pkgs.vscode-extensions; [
+      scalameta.metals
+      ms-ceintl.vscode-language-pack-zh-hans
+    ];
+
+    profiles.verilog.extensions = with pkgs.vscode-extensions; [
+      mshr-h.veriloghdl
+      ms-ceintl.vscode-language-pack-zh-hans
+    ];
   };
 
   xdg.configFile."Code/User/settings.json".source = mkSymlink

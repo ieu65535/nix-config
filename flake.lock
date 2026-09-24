@@ -118,11 +118,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788267358,
-        "narHash": "sha256-nt+lUqYVpc9Y6JeMd2WmXzCDojasdadKo0mWcluvY2Y=",
+        "lastModified": 1789514889,
+        "narHash": "sha256-PFD1nxptCXJyJoiYO1gf/5Vv43yqGpHtMC6LUhl9/pQ=",
         "owner": "cachix",
         "repo": "git-hooks.nix",
-        "rev": "27555e2624241fb116b49095df4caaee85a25691",
+        "rev": "59f4ca0d063a1a3ec722c88b51a33004862e5379",
         "type": "github"
       },
       "original": {
@@ -138,10 +138,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1789765459,
-        "narHash": "sha256-voJJ5IZR4w2149u2Jm/j2zifeWROlpZQ+JzmCQwjgn8=",
+        "lastModified": 1790225410,
+        "narHash": "sha256-BOyZoliWfm/beS4m3FxFKlu5at6npZen1PsWtvzzihk=",
         "ref": "refs/heads/master",
-        "rev": "17903129f47656fa4d07e78ad87f6592ff4f2527",
+        "rev": "4900baf1e219645e4a2acba35723852b2091bc20",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/nix-community/home-manager.git"
@@ -162,10 +162,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1789704254,
-        "narHash": "sha256-bhzBYZm4whYF6/I7zkS1UxBNSbj5RNVysK6gYzl5weo=",
+        "lastModified": 1790050422,
+        "narHash": "sha256-yASXa68R0gUxvB6/dKCfTgza5H/J+ETDDpLX6ZA/Nsc=",
         "ref": "refs/heads/master",
-        "rev": "5928fa386f57488e918a7d1b282f8daf3e103d02",
+        "rev": "1153f42bd4e293e23969481dd64b11fe8e745999",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/fufexan/nix-gaming.git"
@@ -230,10 +230,10 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1789684949,
-        "narHash": "sha256-ZKhUe/2IJUq1JhKxKMu8rbkgSGmPP2ZCqlIPn40aGCM=",
+        "lastModified": 1790185690,
+        "narHash": "sha256-xJ+X4hBtOcAFGBOe5nAMyMUeF9foJBmIOu3NjBqBycU=",
         "ref": "nixos-unstable",
-        "rev": "e554fab72f81915600f3f449b786fd9af40439a5",
+        "rev": "4975466d324710c576dc11ad614684e6bd8cad8e",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/NixOS/nixpkgs.git"
@@ -247,11 +247,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1789149629,
-        "narHash": "sha256-eQUZVehWLDBbpBR2rq6DnuRee1ULT6Y675RhsYDSjYI=",
-        "rev": "eaad089433ca2bb662274377d33df3d0e51ef28b",
+        "lastModified": 1789785513,
+        "narHash": "sha256-BMbikTjbh5H7ac/OjwGoJrlooh4dgNqhs51ABM83M7g=",
+        "rev": "20b1ddd1aa5ace70c9468305030aa4f9ef79671b",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1072397.eaad089433ca/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1076192.20b1ddd1aa5a/nixexprs.tar.zst"
       },
       "original": {
         "type": "tarball",
@@ -263,10 +263,10 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1789735339,
-        "narHash": "sha256-KjnprW4lpS4ISCBnoNxlI9++LACjxlsQV7WWNT4cju8=",
+        "lastModified": 1790216406,
+        "narHash": "sha256-zgbWwUct2HqPpAWO0v3xot1qddJ5QDADHq+JW/jaGlM=",
         "ref": "cachix",
-        "rev": "960d4d46bd3149a556504e7c40ecd87abb251a36",
+        "rev": "58f71922ea9ad5aa7225e88f2da80c976cc17005",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/noctalia-dev/noctalia.git"
@@ -285,10 +285,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1789745917,
-        "narHash": "sha256-2hTzGtOgBz9KA8viAWdp/jYcZW8AtP8SA9Up8Mfplos=",
+        "lastModified": 1790148876,
+        "narHash": "sha256-l+DvmAMk0Wa6rJHsIhBeosP1I8zTtV1ku4sLdSI6nmE=",
         "ref": "refs/heads/main",
-        "rev": "cdc492abbca4ac6b6f757190bcac8256b6d5b113",
+        "rev": "ec03f710b0a93adcc64cfe0d434462ccb30639c6",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/noctalia-dev/noctalia-greeter.git"

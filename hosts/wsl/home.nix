@@ -13,5 +13,10 @@
       enable = true;
       enableFishIntegration = true;
     };
+
+    direnv = {
+      enable = true;
+      enableFishIntegration = true;
+    };
   };
 }

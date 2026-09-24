@@ -1,4 +1,8 @@
-{ config, inputs, lib, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -15,7 +19,10 @@
       "https://mirrors.ustc.edu.cn/nix-channels/store?priority=5"
       "https://cache.nixos.org/"
     ];
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -39,6 +46,7 @@
   virtualisation = {
     podman = {
       enable = true;
+      dockerCompat = true;
       # Periodically prune Podman resources
       autoPrune = {
         enable = true;
@@ -46,6 +54,13 @@
         flags = [ "--all" ];
       };
     };
+  };
+
+  programs.nix-ld = {
+    enable = true;
+    # libraries = with pkgs; [
+    #   stdenv.cc.cc
+    # ];
   };
 
   # This value determines the NixOS release from which the default

@@ -13,11 +13,13 @@ in
     ];
 
     profiles.scala.extensions = with pkgs.vscode-extensions; [
+      scala-lang.scala
       scalameta.metals
       ms-ceintl.vscode-language-pack-zh-hans
     ];
 
     profiles.verilog.extensions = with pkgs.vscode-extensions; [
+      mkhl.direnv
       mshr-h.veriloghdl
       ms-ceintl.vscode-language-pack-zh-hans
     ];

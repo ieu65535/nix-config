@@ -72,6 +72,8 @@
   #   ];
   # };
 
+  services.zerotierone.enable = true;
+
   zramSwap.enable = true; # Creates a zram block device and uses it as a swap device
 
   home-manager = {

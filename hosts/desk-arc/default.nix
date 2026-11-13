@@ -11,6 +11,7 @@
     ../../modules/btrfs.nix
     ../../modules/display-manager.nix
     ../../modules/gc.nix
+    ../../modules/gnome.nix
     # ../../modules/xilinx.nix
   ];
 
@@ -20,10 +21,12 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  display-manager = {
-    enable = true;
-    greeter = "dms-greeter";
-  };
+  # programs.niri.enable = true;
+
+  # display-manager = {
+  #   enable = true;
+  #   greeter = "dms-greeter";
+  # };
 
   services = {
     gvfs.enable = true; # Mount, trash, and other functionalities

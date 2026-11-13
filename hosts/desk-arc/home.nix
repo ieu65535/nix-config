@@ -21,9 +21,30 @@ in
     nixd
   ];
 
-  gui = {
+  # gui = {
+  #   enable = true;
+  #   shell = "dms";
+  # };
+
+  dconf.enable = true;
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      enable-hot-corners = false;
+      scaling-factor = 1.25;
+    };
+    "org/gnome/shell" = {
+      enabled-extensions = [
+        "appindicatorsupport@rgcjonas.gmail.com"
+        "kimpanel@kde.org"
+      ];
+    };
+  };
+
+  xdg.terminal-exec = {
     enable = true;
-    shell = "dms";
+    settings = {
+      default = [ "kitty.desktop" ];
+    };
   };
 
   programs = {
